@@ -5,3 +5,7 @@ export const COLORS = {
   basic3: '#2369F1',
   basic4: '#282727'
 }
+
+export const COLORS_RGBA = {
+ basic3_01: 'rgba(35, 105, 241, 0.1)'
+}
