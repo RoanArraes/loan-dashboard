@@ -20,7 +20,7 @@ export default function MenuHeader({
         <Logo />
         <DashBoardName>{LABELS.APP_NAME}</DashBoardName>
         <UserArea>
-          <UserName>Olá, <p>{user && user.firstName}</p></UserName>
+        <UserName>Olá, <p>{user && user.firstName}</p></UserName>
           <UserImg img={user && user.photo}/>
         </UserArea>
       </MenuContent>
