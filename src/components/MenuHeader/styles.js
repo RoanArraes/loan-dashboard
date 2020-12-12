@@ -5,6 +5,7 @@ import LogoWhite from '../../assets/icons/logo-white.svg';
 import { COLORS, SIZE_FONTS }  from '../../utils';
 
 export const MenuContent = styled.div `
+  width: 100%;
   height: 70px;
   display: flex;
   align-items: center;
@@ -59,7 +60,7 @@ export const DashBoardName = styled.span `
   font-size: ${SIZE_FONTS.h4};
   text-transform: uppercase;
   font-family: 'WorkSans-Bold';
-  transform:translateX(60px);
+  align-self: center;
 
   @media screen and (max-width: 600px) {
     display: none;

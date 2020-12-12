@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { COLORS,COLORS_RGBA, SIZE_FONTS } from '../../utils';
 
 export const BannerContent = styled.div `
+  width: 100%;
   height: 260px;
   display: flex;
   justify-content: space-between;
@@ -11,7 +12,7 @@ export const BannerContent = styled.div `
   background-image: url(${props => props.img});
   background-position: center;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   padding: 0px 20px 0px 20px;
 
   @media screen and (min-width: 1024px) {
@@ -25,10 +26,7 @@ export const BannerContent = styled.div `
 
 export const Message = styled.span `
   width: 150px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Raleway-Bold';
+  font-family: 'Raleway-Regular';
   font-size: ${SIZE_FONTS.h2};
   color: ${COLORS.basic4};
   text-align: center;
