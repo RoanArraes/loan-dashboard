@@ -10,9 +10,7 @@ export const Card = styled.div `
   flex-direction: column;
   justify-content: space-between;
   border-radius: 8px;
-  -webkit-box-shadow: 10px 6px 33px -26px rgba(0,0,0,0.75);
-  -moz-box-shadow: 10px 6px 33px -26px rgba(0,0,0,0.75);
-  box-shadow: 10px 6px 33px -26px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 8px -3px rgba(0,0,0,0.75);
 `;
 
 export const ImgArea = styled.div `
@@ -41,14 +39,14 @@ export const Button = styled.button `
   font-family: 'WorkSans-Bold';
   font-size: ${SIZE_FONTS.h2};
   background-color: ${COLORS.basic0};
-  border: 2px solid ${COLORS.basic3};
-  color: ${COLORS.basic3};
+  border: 2px solid ${COLORS.basic5};
+  color: ${COLORS.basic5};
   margin: 0px 10px 10px 10px;
   text-transform: uppercase;
   cursor: pointer;
 
   &:hover {
-    background-color: ${COLORS.basic3};
+    background-color: ${COLORS.basic5};
     color: ${COLORS.basic0};
   }
 `;

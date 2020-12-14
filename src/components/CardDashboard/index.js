@@ -7,13 +7,13 @@ import {
   Button
 } from './styles.js';
 
-export default function CardDashboard({ icon, label, onClickButton }) {
+export default function CardDashboard({ icon, label, onClickButton, id }) {
   return (
     <Card>
       <ImgArea>
         <Img src={icon} />
       </ImgArea>
-      <Button onClick={onClickButton}>{label}</Button>
+      <Button value={id ? id : label} onClick={(e)=> onClickButton(e)}>{label}</Button>
     </Card>
   )
 }
