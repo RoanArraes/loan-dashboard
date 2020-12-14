@@ -1,6 +1,4 @@
 import styled from 'styled-components';
-import { COLORS, COLORS_RGBA } from '../../utils';
-
 
 export const ImageArea = styled.div`
   width: ${(props) => props.size ? props.size : '100px'};

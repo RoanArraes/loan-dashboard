@@ -1,7 +1,10 @@
-import React, {useState, useEffect} from 'react';
-import './styles.scss';
+import React, {useState} from 'react';
+import { Router } from "@reach/router"
+
 import { LoadingContextProvider } from './context/LoadingContext';
 import { UserProvider } from './context/UserContext';
+
+import './styles.scss';
 
 import Main from "./pages/main";
 import Loading from "./components/Loading";
@@ -29,12 +32,20 @@ function App() {
     });
   }
 
+  let Home = ()=> {
+    return (
+      <Main />
+    )
+  }
+
   return (
     <>
-      <LoadingContextProvider value={loading}>
-        <UserProvider>
-          <Main />
-        </UserProvider>
+     <LoadingContextProvider value={loading}>
+     <UserProvider>
+        <Router>
+          <Home exact path="/" />
+        </Router>
+      </UserProvider>
       </LoadingContextProvider>
       <Loading loading={loading.show} message={loading.message}/>
     </>

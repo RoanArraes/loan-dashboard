@@ -1,7 +1,5 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, { useState } from "react";
 import './main.scss';
-import LoadingContext from '../../context/LoadingContext';
-import UserContext from '../../context/UserContext';
 
 import { PHRASES, CARD_LABELS } from '../../utils';
 
@@ -18,28 +16,9 @@ import ImgParcelas from '../../assets/images/parcelas.jpg';
 import ImgDetalhes from '../../assets/images/detalhes.jpg';
 import ImgCallCenter from '../../assets/images/call-center.jpg';
 
-import { getUser } from "../../services/api";
-
 export default function Main() {
 
 	const [cardDetailsSelected, setCardDetailsSelected] = useState(null);
-
-	const loading = useContext(LoadingContext);
-	const {updateUser} = useContext(UserContext);
-
-	useEffect(()=> {
-		getUserDashboard();
-	}, [])
-
-	async function getUserDashboard() { 
-		loading.showLoading('Carregando dados do usuário ...');
-		const response = await getUser() 
-		if(response) {
-			updateUser(response);
-			loading.hideLoading();
-		}
-		loading.hideLoading();
-	} 
 
 	function handleClickCardButton(card) {
 		if(card === CARD_LABELS.DETALHES) {
