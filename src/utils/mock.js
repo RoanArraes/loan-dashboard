@@ -43,6 +43,18 @@ export const USER_MOCK = {
       "formatedValue": "R$ 500,00",
       "payd": false,
       "dueDate": "01/10/12"
+    },
+    {
+      "value": 500,
+      "formatedValue": "R$ 500,00",
+      "payd": false,
+      "dueDate": "01/11/12"
+    },
+    {
+      "value": 500,
+      "formatedValue": "R$ 500,00",
+      "payd": false,
+      "dueDate": "01/12/12"
     }
   ],
   "UserId": 146,

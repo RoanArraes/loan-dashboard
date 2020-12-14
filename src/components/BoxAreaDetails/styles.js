@@ -29,9 +29,11 @@ export const BoxHeader = styled.div `
 
 export const BoxContent = styled.div `
   width: 100%;
+  max-height: 500px;
   height: 100%;
   display: flex;
   align-items: flex-start;
+  overflow-y: auto;
 `;
 
 export const Title = styled.div `
