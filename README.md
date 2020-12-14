@@ -1,3 +1,11 @@
+ ----- LOAND-DASHBOARD -----
+
+Foi criado utilizando mobile first que busca melhor renderização em mobile e web.
+
+Dashboard simples com foco somente no necessário.
+
+---------------------------------------------------------
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
