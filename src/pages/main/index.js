@@ -1,19 +1,18 @@
-import React, {useEffect, useState} from "react";
-
+import React, {useContext, useEffect, useState} from "react";
 import './main.scss';
+import LoadingContext from '../../context/LoadingContext';
+import UserContext from '../../context/UserContext';
 
-import {PHRASES, CARD_LABELS } from '../../utils';
+import { PHRASES, CARD_LABELS } from '../../utils';
 
 import {
 	MenuHeader,
 	Banner,
 	CardDashboard,
-	BoxAreaDetails,
-	Loading
+	BoxAreaDetails
 } from "../../components";
 
 import ImgBanner from '../../assets/images/img-banner-blue.jpg';
-
 import ImgJuros from '../../assets/images/juros.jpg';
 import ImgParcelas from '../../assets/images/parcelas.jpg';
 import ImgDetalhes from '../../assets/images/detalhes.jpg';
@@ -23,22 +22,23 @@ import { getUser } from "../../services/api";
 
 export default function Main() {
 
-	const [isLoading, setIsLoading] = useState(false);
 	const [cardDetailsSelected, setCardDetailsSelected] = useState(null);
-	const [user, setUser] = useState([]);
+
+	const loading = useContext(LoadingContext);
+	const {updateUser} = useContext(UserContext);
 
 	useEffect(()=> {
 		getUserDashboard();
 	}, [])
 
 	async function getUserDashboard() { 
-		setIsLoading('Carregando dados do usuário ...');
+		loading.showLoading('Carregando dados do usuário ...');
 		const response = await getUser() 
 		if(response) {
-			setUser(response);
-			setIsLoading(false);
+			updateUser(response);
+			loading.hideLoading();
 		}
-		setIsLoading(false);
+		loading.hideLoading();
 	} 
 
 	function handleClickCardButton(card) {
@@ -60,11 +60,10 @@ export default function Main() {
 	return(
 		<div className="ldb-main">
 			<div className="ldb-header">
-				<MenuHeader user={user} />
+				<MenuHeader />
 				<Banner img={ImgBanner} msg1={PHRASES.phrase_01} />
 			</div>
 			<div className="ldb-content">
-				<Loading loading={isLoading} message={isLoading ? isLoading : 'Carregando ...'}/>
 				{!cardDetailsSelected ?
 					<>
 						<CardDashboard icon={ImgDetalhes} label={CARD_LABELS.DETALHES} onClickButton={(e)=> handleClickCardButton(e.target.value)} />
@@ -73,7 +72,7 @@ export default function Main() {
 						<CardDashboard icon={ImgCallCenter} label={CARD_LABELS.SUPORTE} onClickButton={(e)=> handleClickCardButton(e.target.value)} />
 					</>
 					: 
-					<BoxAreaDetails card={cardDetailsSelected} onClickClose={()=> handleClickCloseBoxAreaDetails()} userInfo={user} />
+					<BoxAreaDetails card={cardDetailsSelected} onClickClose={()=> handleClickCloseBoxAreaDetails()} />
 				}
 				
 			</div>

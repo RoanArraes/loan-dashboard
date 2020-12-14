@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import UserContext from '../../context/UserContext';
 
 import {
   Box,
@@ -18,7 +19,10 @@ import { CARD_LABELS } from "../../utils";
 
 import IconClose from "../../assets/icons/icon-close.svg";
 
-export default function BoxAreaDetails({card, onClickClose, userInfo}) {
+export default function BoxAreaDetails({card, onClickClose}) {
+
+  const {user} = useContext(UserContext)
+
   return(
     <Box>
       <BoxHeader>
@@ -30,25 +34,25 @@ export default function BoxAreaDetails({card, onClickClose, userInfo}) {
           <>
             <Content>
               <ImgArea>
-                <UserPhotoSquared userPhoto={userInfo.photo} />
+                <UserPhotoSquared userPhoto={user.photo} />
               </ImgArea>
               <Line>ID:</Line>
-              <LineResult>{userInfo.UserId}</LineResult>
+              <LineResult>{user.UserId}</LineResult>
               <Line>Aluno:</Line>
-              <LineResult>{userInfo.firstName} {userInfo.lastName}</LineResult>
+              <LineResult>{user.firstName} {user.lastName}</LineResult>
               <Line>Instituição:</Line>
-              <LineResult>{userInfo.institution}</LineResult>
+              <LineResult>{user.institution}</LineResult>
               <Line>Curso:</Line>
-              <LineResult>{userInfo.course}</LineResult>
+              <LineResult>{user.course}</LineResult>
               <Line>Data de Início:</Line>
-              <LineResult>{userInfo.startDate}</LineResult>
+              <LineResult>{user.startDate}</LineResult>
               <Line>Data de Conclusão:</Line>
-              <LineResult>{userInfo.endDate}</LineResult>
+              <LineResult>{user.endDate}</LineResult>
               <Line>Valor total do empréstimo:</Line>
-              <LineResult>R$ {userInfo.amountTaken}</LineResult>
+              <LineResult>R$ {user.amountTaken}</LineResult>
               <Line>Nº de parcelas:</Line>
               <LineResult>
-                {(userInfo && userInfo.installments) ? userInfo.installments.length : '0'}
+                {(user && user.installments) ? user.installments.length : '0'}
               </LineResult>
             </Content>
           </>

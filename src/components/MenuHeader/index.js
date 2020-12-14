@@ -1,5 +1,7 @@
 
-import React from "react";
+import React, {useContext} from "react";
+import UserContext from '../../context/UserContext';
+
 import {
   MenuContent,
   Logo,
@@ -11,9 +13,8 @@ import {
 
 import { LABELS } from '../../utils/strings.js';
 
-export default function MenuHeader({
-  user
-}) {
+export default function MenuHeader(){
+  const {user} = useContext(UserContext);
   return (
     <>
       <MenuContent>

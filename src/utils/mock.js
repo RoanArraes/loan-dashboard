@@ -1,6 +1,6 @@
 import UserImgDefault from '../assets/images/image-user.jpg';
 
-export const USER = {
+export const USER_MOCK = {
   "installments": [
     {
       "value": 500,

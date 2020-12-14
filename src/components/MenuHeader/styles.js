@@ -30,7 +30,7 @@ export const UserArea = styled.span `
 `;
 
 export const UserImg = styled.span `
-  display: flex;
+  display: ${(props => props.img ? 'flex' : 'none')};
   align-items: center;
   justify-content: center;
   width: 50px;
