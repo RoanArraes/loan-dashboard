@@ -13,16 +13,12 @@ import {
   Content
 } from './styles';
 
-import { UserPhotoSquared } from '../';
-
-import { CARD_LABELS } from "../../utils";
-
+import {UserPhotoSquared} from '../';
+import {CARD_LABELS} from "../../utils";
 import IconClose from "../../assets/icons/icon-close.svg";
 
 export default function BoxAreaDetails({card, onClickClose}) {
-
-  const {user} = useContext(UserContext)
-
+  const{user} = useContext(UserContext)
   return(
     <Box>
       <BoxHeader>
@@ -95,14 +91,13 @@ export default function BoxAreaDetails({card, onClickClose}) {
               {
                 <div>
                   <Line>Email para contato:</Line>
-                  <LineResult>suporte.dashboard@provi.com.br</LineResult>
+                  <LineResult>suporte.dashboard@loandashboard.com.br</LineResult>
                   <Line>Unidade responsável:</Line>
                   <LineResult>Paulista - São Paulo</LineResult>
                 </div>
               }
             </Content>
           }
-
       </BoxContent>
     </Box>
   )

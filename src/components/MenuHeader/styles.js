@@ -1,11 +1,8 @@
 import styled from 'styled-components';
-
-import LogoWhite from '../../assets/icons/logo-white.svg';
-
-import { COLORS, SIZE_FONTS }  from '../../utils';
+import {COLORS, SIZE_FONTS}  from '../../utils';
+import LogoImg from '../../assets/icons/img-logo.jpg';
 
 export const MenuContent = styled.div `
-  width: 100%;
   height: 70px;
   display: flex;
   align-items: center;
@@ -17,7 +14,7 @@ export const MenuContent = styled.div `
 export const Logo = styled.span `
   width: 80px;
   height: 40px;
-  background-image: url(${LogoWhite});
+  background-image: url(${LogoImg});
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;

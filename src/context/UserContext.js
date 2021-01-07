@@ -1,8 +1,7 @@
-import React,{ useState, useContext, useEffect } from 'react';
-
+import React,{useState, useContext, useEffect} from 'react';
 import LoadingContext from '../context/LoadingContext';
+import {getUser} from "../services/api";
 
-import { getUser } from "../services/api";
 
 const UserContext = React.createContext();
 
@@ -11,11 +10,10 @@ function UserProvider({
 }) 
 {
   const loading = useContext(LoadingContext);
-  const [user, setUser] = useState(null)
-
+  const [user, setUser] = useState(null);
   const value = {
     user: user
-  }
+  };
 
   useEffect(()=> {
     if(loading && loading.showLoading) {
@@ -24,13 +22,14 @@ function UserProvider({
   }, [])
 
   async function getUserDashboard() { 
-		loading.showLoading('Carregando dados do usuário ...');
-		const response = await getUser(); 
+		loading.showLoading('Carregando dados do usuário...');
+    const response = await getUser();
 		if(response) {
-			setUser(response);
-			loading.hideLoading();
-		}
-		loading.hideLoading();
+      setUser(response);
+      loading.hideLoading();
+    } else {
+      loading.hideLoading();
+    }
 	} 
 
   return(

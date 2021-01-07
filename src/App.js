@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
-import { Router } from "@reach/router"
+import {Router} from "@reach/router"
+import {ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { LoadingContextProvider } from './context/LoadingContext';
 import { UserProvider } from './context/UserContext';
@@ -32,22 +34,17 @@ function App() {
     });
   }
 
-  let Home = ()=> {
-    return (
-      <Main />
-    )
-  }
-
   return (
     <>
      <LoadingContextProvider value={loading}>
      <UserProvider>
         <Router>
-          <Home exact path="/" />
+          <Main exact path="/" />
         </Router>
       </UserProvider>
       </LoadingContextProvider>
       <Loading loading={loading.show} message={loading.message}/>
+      <ToastContainer />
     </>
   );
 }
