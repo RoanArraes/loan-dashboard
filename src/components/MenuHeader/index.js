@@ -11,7 +11,7 @@ import {
   DashBoardName
 } from './styles.js';
 
-import { LABELS } from '../../utils/strings.js';
+import {LABELS} from '../../utils/strings.js';
 
 export default function MenuHeader(){
   const {user} = useContext(UserContext);

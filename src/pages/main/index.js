@@ -1,13 +1,19 @@
 import React, { useState } from "react";
-import './main.scss';
+import {PHRASES, CARD_LABELS} from '../../utils';
 
-import { PHRASES, CARD_LABELS } from '../../utils';
+import{
+	MainArea,
+	HeaderArea,
+	BodyArea,
+	FooterArea
+} from './styles'
 
 import {
 	MenuHeader,
 	Banner,
 	CardDashboard,
-	BoxAreaDetails
+	BoxAreaDetails,
+	Footer
 } from "../../components";
 
 import ImgBanner from '../../assets/images/img-banner-blue.jpg';
@@ -16,11 +22,11 @@ import ImgParcelas from '../../assets/images/parcelas.jpg';
 import ImgDetalhes from '../../assets/images/detalhes.jpg';
 import ImgCallCenter from '../../assets/images/call-center.jpg';
 
-export default function Main() {
+export default function Main(){
 
 	const [cardDetailsSelected, setCardDetailsSelected] = useState(null);
 
-	function handleClickCardButton(card) {
+	function handleClickCardButton(card){
 		if(card === CARD_LABELS.DETALHES) {
 			setCardDetailsSelected(card)
 		} else if (card === CARD_LABELS.PARCELAS) {
@@ -32,32 +38,31 @@ export default function Main() {
 		}
 	}
 
-	function handleClickCloseBoxAreaDetails() {
+	function handleClickCloseBoxAreaDetails(){
 		setCardDetailsSelected(null)
 	}
 
 	return(
-		<div className="ldb-main">
-			<div className="ldb-header">
+		<MainArea>
+			<HeaderArea>
 				<MenuHeader />
-				<Banner img={ImgBanner} msg1={PHRASES.phrase_01} />
-			</div>
-			<div className="ldb-content">
+				<Banner img={ImgBanner} msg1={PHRASES.phrase_01}/>
+			</HeaderArea>
+			<BodyArea>
 				{!cardDetailsSelected ?
 					<>
-						<CardDashboard icon={ImgDetalhes} label={CARD_LABELS.DETALHES} onClickButton={(e)=> handleClickCardButton(e.target.value)} />
-						<CardDashboard icon={ImgParcelas} label={CARD_LABELS.PARCELAS} onClickButton={(e)=> handleClickCardButton(e.target.value)} />
-						<CardDashboard icon={ImgJuros} label={CARD_LABELS.JUROS} onClickButton={(e)=> handleClickCardButton(e.target.value)} />
-						<CardDashboard icon={ImgCallCenter} label={CARD_LABELS.SUPORTE} onClickButton={(e)=> handleClickCardButton(e.target.value)} />
+						<CardDashboard icon={ImgDetalhes} label={CARD_LABELS.DETALHES} onClickButton={(e)=> handleClickCardButton(e.target.value)}/>
+						<CardDashboard icon={ImgParcelas} label={CARD_LABELS.PARCELAS} onClickButton={(e)=> handleClickCardButton(e.target.value)}/>
+						<CardDashboard icon={ImgJuros} label={CARD_LABELS.JUROS} onClickButton={(e)=> handleClickCardButton(e.target.value)}/>
+						<CardDashboard icon={ImgCallCenter} label={CARD_LABELS.SUPORTE} onClickButton={(e)=> handleClickCardButton(e.target.value)}/>
 					</>
 					: 
-					<BoxAreaDetails card={cardDetailsSelected} onClickClose={()=> handleClickCloseBoxAreaDetails()} />
+					<BoxAreaDetails card={cardDetailsSelected} onClickClose={()=> handleClickCloseBoxAreaDetails()}/>
 				}
-				
-			</div>
-			<div className="ldb-footer">
-
-			</div>	
-		</div> 
+			</BodyArea>
+			<FooterArea>
+				<Footer />
+			</FooterArea>	
+		</MainArea> 
 	)
 }

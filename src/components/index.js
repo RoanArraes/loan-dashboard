@@ -4,6 +4,7 @@ import CardDashboard from './CardDashboard';
 import BoxAreaDetails from './BoxAreaDetails';
 import UserPhotoSquared from './UserPhotoSquared';
 import Loading from './Loading';
+import Footer from './Footer';
 
 export {
   MenuHeader,
@@ -11,5 +12,6 @@ export {
   CardDashboard,
   BoxAreaDetails,
   UserPhotoSquared,
-  Loading
+  Loading,
+  Footer
 };

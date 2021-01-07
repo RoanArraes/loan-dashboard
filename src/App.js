@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Router } from "@reach/router"
+import {Router} from "@reach/router"
 import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
